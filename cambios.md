@@ -1,0 +1,1 @@
+Validación en ambiente QA
