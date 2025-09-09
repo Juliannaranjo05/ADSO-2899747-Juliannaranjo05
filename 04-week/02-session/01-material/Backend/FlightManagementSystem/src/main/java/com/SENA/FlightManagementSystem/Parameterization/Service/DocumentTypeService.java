@@ -11,12 +11,11 @@ import com.SENA.FlightManagementSystem.Parameterization.IService.IDocumentTypeSe
 @Service
 public class DocumentTypeService extends ABaseService<DocumentType> implements IDocumentTypeService {
 
+    @Autowired
+    private IDocumentTypeRepository repository;
+
     @Override
     protected IBaseRepository<DocumentType, String> getRepository() {
         return repository;
     }
-
-    @Autowired
-	private IDocumentTypeRepository repository;
-
 }

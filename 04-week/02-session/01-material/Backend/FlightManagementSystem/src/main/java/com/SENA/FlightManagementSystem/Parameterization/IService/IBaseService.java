@@ -16,7 +16,7 @@ public interface IBaseService<T extends ABaseEntity> {
      * @return A list of entities with state set to true.
      * @throws Exception If an error occurs while retrieving the entities.
      */
-    List<T> findByStateTrue() throws Exception;
+    List<T> findByStatusTrue() throws Exception;
 
     /**
      * Retrieves an entity by its ID.

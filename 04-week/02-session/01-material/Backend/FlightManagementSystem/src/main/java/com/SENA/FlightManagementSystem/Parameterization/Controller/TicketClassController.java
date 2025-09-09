@@ -15,5 +15,4 @@ public class TicketClassController extends ABaseController<TicketClass, ITicketC
     public TicketClassController(ITicketClassService service) {
         super(service, "TicketClass");
     }
-
 }

@@ -16,7 +16,7 @@ import com.SENA.FlightManagementSystem.Parameterization.IService.IBaseService;
  * 
  * @param <T> The type of entity extending ABaseEntity.
  */
-abstract public class ABaseService<T extends ABaseEntity> implements IBaseService<T> {
+public abstract class ABaseService<T extends ABaseEntity> implements IBaseService<T> {
 
     /**
      * Retrieves the repository associated with the entity.
@@ -37,14 +37,14 @@ abstract public class ABaseService<T extends ABaseEntity> implements IBaseServic
     }
 
     /**
-     * Retrieves all entities with state set to true.
+     * Retrieves all entities with status set to true.
      * 
-     * @return A list of entities with state set to true.
+     * @return A list of entities with status set to true.
      * @throws Exception If an error occurs while retrieving the entities.
      */
     @Override
-    public List<T> findByStateTrue() throws Exception {
-        return getRepository().findAll();
+    public List<T> findByStatusTrue() throws Exception {
+        return getRepository().findByStatusTrue();
     }
 
     /**
@@ -77,6 +77,7 @@ abstract public class ABaseService<T extends ABaseEntity> implements IBaseServic
             entity.setId(null); // Dejar que JPA genere automáticamente el UUID
             entity.setCreatedAt(LocalDateTime.now());
             entity.setCreatedBy(UUID.randomUUID().toString());
+            entity.setStatus(true); // Establecer status como true por defecto
             return getRepository().save(entity);
         } catch (Exception e) {
             // Captura la excepción
@@ -111,7 +112,7 @@ abstract public class ABaseService<T extends ABaseEntity> implements IBaseServic
     }
 
     /**
-     * Deletes an entity by its ID.
+     * Deletes an entity by its ID (logical deletion).
      * 
      * @param id The ID of the entity to delete.
      * @throws Exception If an error occurs while deleting the entity.
@@ -127,6 +128,7 @@ abstract public class ABaseService<T extends ABaseEntity> implements IBaseServic
         T entityUpdate = op.get();
         entityUpdate.setDeletedAt(LocalDateTime.now());
         entityUpdate.setDeletedBy(UUID.randomUUID().toString()); 
+        entityUpdate.setStatus(false); // Marcar como inactivo
 
         getRepository().save(entityUpdate);
     }

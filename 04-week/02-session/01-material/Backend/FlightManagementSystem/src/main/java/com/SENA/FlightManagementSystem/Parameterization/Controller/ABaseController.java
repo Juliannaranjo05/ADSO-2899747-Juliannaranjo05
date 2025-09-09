@@ -47,7 +47,7 @@ public abstract class ABaseController<T extends ABaseEntity, S extends IBaseServ
     @GetMapping
     public ResponseEntity<ApiResponseDto<List<T>>> findByStateTrue() {
         try {
-            return ResponseEntity.ok(new ApiResponseDto<List<T>>("Datos obtenidos", service.findByStateTrue(), true));
+            return ResponseEntity.ok(new ApiResponseDto<List<T>>("Datos obtenidos", service.findByStatusTrue(), true));
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new ApiResponseDto<List<T>>(e.getMessage(), null, false));
         }
