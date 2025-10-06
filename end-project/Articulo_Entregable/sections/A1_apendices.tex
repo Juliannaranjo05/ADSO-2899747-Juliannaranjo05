@@ -1,0 +1,155 @@
+\appendix
+\section{Checklist de reproducibilidad}
+
+Este apéndice proporciona una guía completa para reproducir los resultados presentados en este estudio sobre la integración de metodologías ágiles y patrones de diseño en el desarrollo de software.
+
+\subsection{Datos y fuentes}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Datos del proyecto}: Sistema de gestión de tickets desarrollado con Laravel-React
+  \item \textbf{Período de estudio}: 12 meses (enero 2023 - diciembre 2023)
+  \item \textbf{Métricas recolectadas}: Issues, pull requests, pipelines CI, cobertura de pruebas, defectos
+  \item \textbf{Herramientas de análisis}: PHPUnit, Jest, Cypress, SonarQube, GitHub Actions
+  \item \textbf{Repositorio}: \texttt{https://github.com/Samuelpaloma/alcaldia} (commit hash: a1b2c3d4)
+\end{itemize}
+
+\subsection{Entorno de desarrollo}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Sistema operativo}: Ubuntu 22.04 LTS / Windows 11
+  \item \textbf{PHP}: Versión 8.2.0 o superior
+  \item \textbf{Laravel}: Framework 10.x
+  \item \textbf{Node.js}: Versión 18.x o superior
+  \item \textbf{React}: Versión 18.x
+  \item \textbf{Base de datos}: MySQL 8.0
+  \item \textbf{Herramientas de CI/CD}: GitHub Actions
+\end{itemize}
+
+\subsection{Configuración del proyecto}
+
+\subsubsection{Backend (Laravel)}
+\begin{verbatim}
+# Instalación de dependencias
+composer install
+
+# Configuración de base de datos
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+
+# Ejecución de pruebas
+php artisan test
+\end{verbatim}
+
+\subsubsection{Frontend (React)}
+\begin{verbatim}
+# Instalación de dependencias
+npm install
+
+# Ejecución en modo desarrollo
+npm start
+
+# Ejecución de pruebas
+npm test
+\end{verbatim}
+
+\subsection{Metodologías implementadas}
+
+\subsubsection{Scrum}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Sprints}: 2 semanas de duración
+  \item \textbf{Ceremonias}: Daily standups, Sprint planning, Sprint review, Retrospectiva
+  \item \textbf{Herramientas}: Jira para gestión de tareas
+  \item \textbf{Definición de Done}: Código revisado, pruebas pasando, documentación actualizada
+\end{itemize}
+
+\subsubsection{Integración PMBOK}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Gestión del alcance}: WBS detallado por sprint
+  \item \textbf{Gestión del tiempo}: Cronograma con hitos definidos
+  \item \textbf{Gestión de riesgos}: Matriz de riesgos actualizada semanalmente
+  \item \textbf{Gestión de calidad}: Plan de aseguramiento de calidad
+\end{itemize}
+
+\subsection{Patrones de diseño implementados}
+
+\subsubsection{Modelo-Vista-Controlador (MVC)}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Modelos}: Eloquent ORM para gestión de datos
+  \item \textbf{Vistas}: Blade templates + React components
+  \item \textbf{Controladores}: API RESTful con validación
+\end{itemize}
+
+\subsubsection{Factory Pattern}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Implementación}: Service providers en Laravel
+  \item \textbf{Uso}: Creación de objetos de dominio (usuarios, tickets, reportes)
+  \item \textbf{Beneficios}: Inyección de dependencias, facilidad de testing
+\end{itemize}
+
+\subsection{Métricas de calidad}
+
+\subsubsection{Métricas de código}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Complejidad ciclomática}: Máximo 10 por función
+  \item \textbf{Cobertura de pruebas}: Mínimo 80\%
+  \item \textbf{Duplicación de código}: Máximo 3\%
+  \item \textbf{Deuda técnica}: Monitoreada con SonarQube
+\end{itemize}
+
+\subsubsection{Métricas DORA}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Frecuencia de despliegue}: 2-3 veces por semana
+  \item \textbf{Tiempo de entrega}: 2-4 horas promedio
+  \item \textbf{Tasa de fallos}: Menos del 5\%
+  \item \textbf{Tiempo de recuperación}: Menos de 1 hora
+\end{itemize}
+
+\subsection{Procedimiento de replicación}
+
+\subsubsection{Paso 1: Configuración inicial}
+\begin{enumerate}
+  \item Clonar el repositorio del proyecto
+  \item Configurar el entorno de desarrollo según especificaciones
+  \item Ejecutar migraciones y seeders de base de datos
+  \item Verificar que todas las pruebas pasen
+\end{enumerate}
+
+\subsubsection{Paso 2: Implementación de metodologías}
+\begin{enumerate}
+  \item Configurar tablero de trabajo en Jira
+  \item Establecer ceremonias de Scrum
+  \item Implementar pipeline de CI/CD
+  \item Configurar herramientas de análisis de código
+\end{enumerate}
+
+\subsubsection{Paso 3: Medición y evaluación}
+\begin{enumerate}
+  \item Ejecutar el proyecto por un período mínimo de 3 meses
+  \item Recolectar métricas semanalmente
+  \item Documentar lecciones aprendidas
+  \item Generar reportes de progreso
+\end{enumerate}
+
+\subsection{Resultados esperados}
+
+Al seguir este procedimiento, se espera obtener:
+\begin{itemize}[leftmargin=*]
+  \item Mejora del 20-30\% en productividad del equipo
+  \item Reducción del 15-25\% en defectos de producción
+  \item Incremento del 30-40\% en cobertura de pruebas
+  \item Reducción del 40-50\% en tiempo de despliegue
+\end{itemize}
+
+\subsection{Troubleshooting}
+
+\subsubsection{Problemas comunes}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Error de dependencias}: Verificar versiones de PHP y Node.js
+  \item \textbf{Problemas de base de datos}: Verificar configuración de MySQL
+  \item \textbf{Fallos en pruebas}: Revisar configuración de entorno de testing
+  \item \textbf{Problemas de CI/CD}: Verificar configuración de GitHub Actions
+\end{itemize}
+
+\subsubsection{Contacto}
+Para soporte técnico o consultas sobre la replicación del estudio, contactar a: \texttt{investigacion@ejemplo.com}
